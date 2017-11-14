@@ -102,7 +102,7 @@ while (True):
 #           read from humidity sensor 2 in pin 4 (celler)
            tempS2=3#x.temp("4")
 #           print "efter temp 4"
-           humidityS2=1#x.hum("4")
+           humidityS2=2#x.hum("4")
 #           print "efter hum 4"
            lcd.messageN("Usage %.2fKwh/%.0f:-" % (Pavg,Pavg*750),1)
            lcd.messageN("Humidity %.1f/%.1f " % (humidity,humidityS2),2)
