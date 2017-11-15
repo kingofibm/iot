@@ -199,7 +199,7 @@ while (True):
 
        time.sleep(0.04)
    except KeyboardInterrupt:
-            cursor.close()
+  #          cursor.close()
   #          con.close()
             GPIO.cleanup()       # clean up GPIO on CTRL+C exit
   
