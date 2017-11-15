@@ -136,19 +136,51 @@ while (True):
            lcd.messageN("                   ", 4)
            lcd.messageN(datetime.datetime.now(sweden).strftime('%H:%M:%S')+"  "+str(pressure/100)+" mBar", 4)
            klingon= int(time.time( ))
+           klingon2= int(time.time( ))*1000000000
+
+          
            klingon= klingon*1000
 # influx
 
            json_body = [
                        {
                          "measurement": "power",
-                         "time":klingon,
+                         "time":klingon2,
                          "fields": {
                             "power": Pavg
                                    }
                         }
                        ]
            db.write_points(json_body)
+
+
+           json_body = [
+                       {
+                         "measurement": "tempCeller",
+                         "time":klingon2,
+                         "fields": {
+                            "tempCeller": round(temperature,1)
+                                   }
+                        }
+                       ]
+      
+           db.write_points(json_body)
+
+           json_body = [
+                       {
+                         "measurement": "humCeller",
+                         "time":klingon2,
+                         "fields": {
+                            "humCeller": round(humidity,0)
+                                   }
+                        }
+                       ]
+
+           db.write_points(json_body)
+
+
+
+
 #end influx 
 
 
